@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "Frappe",
+    "version": "1.0.0",
+    "description": "An extension to extract facebook page or groups posts data effectively and efficiently.",
+    "icons": {
+        "16": "statics/icons/frappe.png",
+        "32": "statics/icons/frappe.png",
+        "48": "statics/icons/frappe.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://*.facebook.com/*"],
+            "js": ["content.js"],
+            "run_at": "document_start"
+        }
+    ],
+    "action": {},
+    "permissions": [
+        "activeTab",
+        "webRequest",
+        "storage",
+        "scripting"
+    ],
+    "host_permissions": [
+        "http://*.facebook.com/*",
+        "https://*.facebook.com/*"
+    ],
+    "web_accessible_resources": [{
+        "resources": ["injector.js"],
+        "matches": ["https://*.facebook.com/*"]
+    }],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'",
+        "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals"
+    }
+}
