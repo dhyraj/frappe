@@ -36,7 +36,7 @@
                         
                         if (parsedResponse) {
                             window.postMessage({
-                                type: 'FRAPPE_DATA',
+                                type: 'GROUP_POST',  // Changed from FRAPPE_DATA to GROUP_POST
                                 data: {
                                     id: Date.now(),
                                     url: this._frappeData.url,
@@ -65,7 +65,6 @@
                 // Only store request body if it matches our criteria
                 if (bodyStr.includes('GroupsCometFeedRegularStoriesPaginationQuery')) {
                     this._frappeRequestBody = bodyStr;
-                    console.log('Frappe: Detected group feed query');
                 }
             } catch (e) {
                 console.error('Frappe: Failed to process request body', e);

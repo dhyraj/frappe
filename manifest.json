@@ -4,12 +4,9 @@
     "version": "1.0.0",
     "description": "An extension to extract facebook page or groups posts data effectively and efficiently.",
     "icons": {
-        "16": "statics/icons/frappe.png",
-        "32": "statics/icons/frappe.png",
-        "48": "statics/icons/frappe.png"
-    },
-    "background": {
-        "service_worker": "background.js"
+        "16": "assets/icons/frappe.png",
+        "32": "assets/icons/frappe.png",
+        "48": "assets/icons/frappe.png"
     },
     "content_scripts": [
         {
@@ -18,12 +15,17 @@
             "run_at": "document_start"
         }
     ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
     "action": {},
     "permissions": [
         "activeTab",
         "webRequest",
         "storage",
-        "scripting"
+        "scripting",
+        "downloads"
     ],
     "host_permissions": [
         "http://*.facebook.com/*",
