@@ -44,12 +44,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // Process GROUP_POST messages
     if (message.type === 'GROUP_POST') {
         console.log('🎯 Processing group post data', message.data.response);
-        try {
-            // Save data to file
-            // saveToFile(message.data.response);
-        } catch (error) {
-            console.error('❌ Error saving data:', error);
-        }
+        // try {
+        //     // Save data to file
+        //     // saveToFile(message.data.response);
+        // } catch (error) {
+        //     console.error('❌ Error saving data:', error);
+        // }
     }
 
     return true;
